@@ -15,7 +15,10 @@ function getData(url) {
 }
 
 function showData(data) {
+    const container = document.getElementById('container');
+    container.innerHTML = '';
     for (let i = 0; i < data.length; i++){
         console.log(data[i]);
+        container.innerHTML += '<div id="' + data[i].id + '" style="color:' + data[i].color + '">' + data[i].word + '</div>';
     }
 }
