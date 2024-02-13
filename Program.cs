@@ -25,6 +25,7 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1",
         Description = "A totally useless API",
         });
+    c.EnableAnnotations();
     c.TagActionsBy(api => new[] { api.HttpMethod });
 });
 
