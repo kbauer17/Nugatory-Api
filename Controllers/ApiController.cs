@@ -35,5 +35,17 @@ namespace WordApi.Controllers
             await _dataContext.SaveChangesAsync();
             return wordColor;
         }
+
+                // http delete member from collection
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id){
+            WordColor wordColor = await _dataContext.WordColors.FindAsync(id);
+            if (wordColor == null){
+                return NotFound();
+            }
+            _dataContext.Remove(wordColor);
+            await _dataContext.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
